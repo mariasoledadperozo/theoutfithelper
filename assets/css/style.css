@@ -1,0 +1,52 @@
+:root {
+    --color-primary-brown: #472600; 
+    --color-secundary-dark-pink: #FBDCE2; 
+    --color-accent-light-pink: #FFEBEF;
+    --color-font-light: #FFFFFF; 
+}
+
+/********************/
+
+@font-face {
+    font-family: 'Zilla Slab';
+    src: url('../fonts/ZillaSlab-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zilla Slab';
+    src: url('../fonts/ZillaSlab-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Zilla Slab';
+    src: url('../fonts/ZillaSlab-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zilla Slab';
+    src: url('../fonts/ZillaSlab-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/******************************/ 
+
+body {
+    background-color: red;
+}
+
+* {
+    margin: 0; 
+    padding: 0;
+}
+
+#header {
+    background-color: var(--color-primary-brown);
+    font-family: 'Zilla Slab', serif;
+}
