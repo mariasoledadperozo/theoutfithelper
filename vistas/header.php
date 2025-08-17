@@ -18,6 +18,7 @@
                     <a href="index.php">Home</a>
                     <a href="generator.php">Generator</a>
                     <a href="editCloset.php">Edit Closet</a>
+                    <a href="aboutUs.php">About us</a>
                 </section>
         </article>
     </header>

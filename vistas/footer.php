@@ -19,33 +19,44 @@
     </section>
 
     <section id="footer-mid">
-        <article>
-            <img src="../assets/img/Atomo_Logo_TheOutfitHelper.png" alt="Logo of The Outfit Helper">
-            <p>the outfit helper</p>
+        <article id="footer-about">
+             <img src="/theoutfithelper/assets/img/Atomo_Logo_TheOutfitHelper.png" 
+                alt="The Outfit Helper Logo"
+                id="logo-footer">
+            <p> The Outfit Helper is a web application designed to help you mix 
+                and match items from your wardrobe and easily create outfits 
+                making your daily outfit choice much easier.
+            </p>
         </article>
-        <article class="footer-links">
-            <a href="">Home</a>
+        <article id="footer-links">
+            <p class="footer-title">Menu</p>
+            <a href="index.php">Home</a>
             <a href="">Outfit Generator</a>
             <a href="">Edit closet</a>
             <a href="">About us</a>
         </article>
-        <article>
-            <p>Get in touch</p>
+        <article id="footer-contact">
+            <p class="footer-title">Get in touch</p>
             <p>
                 <i class="fa-regular fa-map"></i>
                 <a href="mailto:hello@theoutfithelper.com">hello@theoutfithelper.com</a>
             </p>
              <p>
                 <i class="fa-regular fa-envelope"></i>
-                <a href="googlemaps.com">SunwoodStreet, 03</a>
+                <a href="googlemaps.com">Sunwood Street, 03</a>
             </p>
+            <nav>
+                    <a href="/terms.php">Terms & Conditions</a>
+                    <a href="/privacy.php">Privacy Policy</a>
+                    <a href="/cookies.php">Cookies Policy</a>
+            </nav>
         </article>
     </section>
 
     <section id="footer-lower">
         <article>
             <p>© 2025 The Outfit Helper. All rights reserved.</p>
-            <p>Created by <a href="#">Your Name</a></p>
+            <p>Created by <a href="https://github.com/mariasoledadperozo">maria soledad</a></p>
         </article>
     </section>
 </footer>
