@@ -1,24 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Outfit Helper - <?php echo $pageTitle ?></title>
-    <link rel="stylesheet" href="/theoutfithelper/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-
-</head>
-<body>
-    <header id="header">
+<header id="main-header">
+    <nav>
         <article>
-                <h2>the <span>outfit</span> helper</h2>
-
-                <section>
-                    <a href="index.php">Home</a>
-                    <a href="generator.php">Generator</a>
-                    <a href="editCloset.php">Edit Closet</a>
-                    <a href="aboutUs.php">About us</a>
-                </section>
+        <a href="index.php">
+            <h1>
+                the <span>outfit</span> helper
+            </h1>
+        </a>
+        <ul>
+            <li>
+                <a href="">
+                    <button class="main-button-menu">generate outfit</button>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <button class="main-button-menu">edit closet</button>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <button class="main-button-menu">settings</button>
+                </a>
+            </li>
+        </ul>
         </article>
-    </header>
+
+        <a href="">
+            <button class="secondary-button-menu">
+                log out
+            </button>
+        </a>
+    </nav>
+</header> 
+
+
+<header id="secondary-header">
+        <img src="/theoutfithelper/assets/img/Atomo_Icono_Default.jpg" alt="foto de perfil"> 
+        <span>Hello, <?php
+                    $nombre = $_GET['nombre'] ?? 'name'; 
+                    echo $nombre;
+                    ?>!
+        </span>
+</header>
