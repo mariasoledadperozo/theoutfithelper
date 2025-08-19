@@ -9,11 +9,9 @@
 </head>
 <body>
     
-
-    <?php include 'vistas/header.php'; ?>
-
-     <main>
-        <article id="clothing-cards">
+        <div class="main-wrapper">
+        <?php include 'vistas/header.php'; ?>
+            <article id="clothing-cards">
             <section class="card-clothing">
                 <button>
                     <i class="fa-solid fa-arrow-left"></i>
@@ -33,7 +31,7 @@
                 </button>
             </section>
         </article>
-    </main>
+    </div>
     <?php include 'vistas/background.php'; ?>
     <?php include 'vistas/footer.php'; ?>
 
