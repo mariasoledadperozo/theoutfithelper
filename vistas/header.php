@@ -41,4 +41,5 @@
                     echo $nombre;
                     ?>!
         </span>
+        <i class="fa-solid fa-right-from-bracket"></i>
 </header>

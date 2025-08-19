@@ -12,26 +12,33 @@
         <div class="main-wrapper">
         <?php include 'vistas/header.php'; ?>
             <article id="clothing-cards">
-            <section class="card-clothing">
-                <button>
-                    <i class="fa-solid fa-arrow-left"></i>
-                </button>
-                        <img src="/theoutfithelper/assets/img/top.png" alt="Clothing Item 1" id="clothing-img">
-                <button>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </section>
-             <section class="card-clothing">
-                <button>
-                    <i class="fa-solid fa-arrow-left"></i>
-                </button>
-                        <img src="/theoutfithelper/assets/img/top.png" alt="Clothing Item 1" id="clothing-img">
-                <button>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </section>
-        </article>
+            <div class="card-button">
+                <section class="card-clothing">
+                        <button class="arrow-button">
+                                <i class="fa-solid fa-arrow-left"></i>
+                         </button>
+                                    <img src="/theoutfithelper/assets/img/top.png" alt="Clothing Item 1" id="clothing-img">
+                        <button class="arrow-button">
+                                 <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                </section>
+                <button class="shuffle-button">shuffle!</button>
+            </div>
+
+              <div class="card-button">
+                <section class="card-clothing">
+                        <button class="arrow-button">
+                                <i class="fa-solid fa-arrow-left"></i>
+                         </button>
+                                    <img src="/theoutfithelper/assets/img/top.png" alt="Clothing Item 1" id="clothing-img">
+                        <button class="arrow-button">
+                                 <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                </section>
+                <button class="shuffle-button">shuffle!</button>
+            </div>
     </div>
+
     <?php include 'vistas/background.php'; ?>
     <?php include 'vistas/footer.php'; ?>
 
