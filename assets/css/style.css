@@ -75,10 +75,10 @@ a {
 
 body {
     background-color: var(--color-secundary-dark-pink);
-    min-height: 100vh;   
-    margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+    min-height: 100vh;
+    margin: 0;
 }
 
 * {
@@ -86,21 +86,30 @@ body {
     padding: 0;
 }
 
+
+main {
+
+    margin-left: 23rem;  
+    padding: 2rem;
+    flex: 1;
+    padding-top: 7rem; 
+}
+
+
 /********************/ 
 
 #main-header {
-    background-color: var(--color-secundary-dark-pink);
-    height: 100vh;
-    width: 23rem; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background-color: var(--color-secundary-dark-pink);
+  height: 100vh;
+  width: 23rem;
+  position: fixed;   
+  top: 0;
+  left: 0;
 }
 
 #main-header > nav {
     width: 90%;
-    height: 20%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,6 +135,7 @@ body {
     height: 3rem;
     border-radius: 0.7rem;
     border: #503313 solid 0.1rem;
+    cursor: pointer;
 }
 
 .secondary-button-menu {
@@ -141,6 +151,7 @@ body {
     height: 3rem;
     border-radius: 0.7rem;
     border: #fdf0f3 solid 0.1rem;
+    cursor: pointer;
 }
 
 #secondary-header {
@@ -153,7 +164,7 @@ body {
     align-items: center;
     gap: 0.5rem; 
     height: 5rem;
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 10; 
     padding-right: 1rem; 
@@ -186,22 +197,11 @@ body {
     font-family: 'Zilla Slab', serif;
 }
 
-/******************/
-
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    width: 100%F;
-    justify-content: center;
-    align-items: center;
-}
-
 
 /******************/
 
 footer {
-    background-color: var(--color-primary-brown);
+     background-color: var(--color-primary-brown);
     color: var(--color-font-light);
     font-family: 'Zilla Slab', serif;
     min-height: 10rem;       
@@ -210,7 +210,6 @@ footer {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: auto;  
 }
 
 
@@ -311,18 +310,20 @@ footer {
 
 /******************/
 
+.main-wrapper {
+    display: flex;
+    flex: 1; 
+}
+
 #clothing-cards {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    width: 50rem;
-    height: auto;
 }
 
 .card-clothing {
     position: relative;
-    top: -500px; 
     width: 34rem;
     height: 32rem; 
     display: flex;
@@ -334,6 +335,7 @@ article .card-clothing button {
     border: none;
     color: var(--color-font-light);
     width: 4rem;
+    cursor: pointer;  
 }
 
 
