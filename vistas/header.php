@@ -25,7 +25,7 @@
         </ul>
         </article>
 
-        <a href="">
+        <a href="/theoutfithelper/vistas/login.php">
             <button class="secondary-button-menu">
                 log out
             </button>
