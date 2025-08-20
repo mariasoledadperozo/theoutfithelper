@@ -15,19 +15,19 @@
     <div id="side-bar-log-in">
         <h2>Welcome back!</h2>
         <p>Log in to start generating outfits and managing your closet.</p>
-        <form action="/controlador/usuarioController.php" method="post">
+        <form action="/controlador/userController.php" method="post">
             <div class="input-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="YourUsername" required>
+                <input type="text" id="username" name="username" placeholder="Username" required>
             </div>
             <div class="input-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Your password" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
             </div>
             <button type="submit" class="main-button-menu" name="login">Log In</button>
         </form>
         <p class="register-link">Don't have an account? 
-        <br><a href="">Register here</a></p>
+        <br><a href="signin.php">Register here</a></p>
     </div>
     <?php include 'footer.php'; ?>
 

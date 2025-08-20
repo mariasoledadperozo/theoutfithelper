@@ -1,5 +1,8 @@
 <?php
 include "config/connection.php"; 
+if(!isset($_SESSION['user'])){
+        header('Location: vistas/login.php'); 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
