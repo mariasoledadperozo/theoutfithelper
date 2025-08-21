@@ -6,11 +6,18 @@
     <title>The Outfit Helper - Log In </title>
     <link rel="stylesheet" href="/theoutfithelper/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../assets/js/main.js"></script>
 </head>
 <body>
     <?php include 'background.php'; ?>
+    <?php
+        if (isset($_SESSION['mssg'])) {
+            echo '
+                <script>
+                    alert('.$_SESSION['mssg'].');
+                </script>
+            ';
+        }
+    ?>
 
     <div id="side-bar-log-in">
         <h2>Welcome back!</h2>
@@ -30,7 +37,6 @@
         <br><a href="signin.php">Register here</a></p>
     </div>
     <?php include 'footer.php'; ?>
-
 
 </body>
 </html>
