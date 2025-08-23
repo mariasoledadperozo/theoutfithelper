@@ -39,7 +39,7 @@
             </div>
             <div class="input-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="pass" name="pass" placeholder="Password" required>
             </div>
             <div class="input-group">
                 <label for="password">Confirm Password:</label>

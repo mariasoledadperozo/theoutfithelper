@@ -7,19 +7,19 @@ function showSessionAlert() {
             return response.json();
         })
         .then(data => {
+
             if (data.has_session) {
-                Swal.fire({
-                    title: '¡Bienvenido!',
-                    text: data.message,
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar'
-                });
+
+                if (data.message.includes("successfully")) {
+                    toastr.success(data.message, 'Successfully!'); 
+                } else {
+                    toastr.error(data.message, 'Error'); 
+                }
             }
         })
         .catch(error => {
-            console.error('Hubo un problema con la petición fetch:', error);
+            console.error('Error:', error);
         });
 }
-
 
 document.addEventListener('DOMContentLoaded', showSessionAlert);
