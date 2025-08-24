@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Outfit Helper - Log In</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="stylesheet" href="/theoutfithelper/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -25,7 +27,10 @@
             </div>
             <div class="input-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <div>
+                        <input type="password" id="pass" name="pass" placeholder="Password" required>
+                        <i class="fa-solid fa-eye-slash" id="eye-state" onclick="pass()"></i>
+                </div>
             </div>
             <button type="submit" class="main-button-menu" name="login">Log In</button>
         </form>

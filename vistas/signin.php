@@ -9,6 +9,8 @@
     <title>The Outfit Helper - Sign In </title>
     <link rel="stylesheet" href="/theoutfithelper/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script src="../assets/js/main.js"></script>
 </head>
 <body>
     <?php include 'background.php'; ?>
@@ -40,10 +42,12 @@
             <div class="input-group">
                 <label for="password">Password:</label>
                 <input type="password" id="pass" name="pass" placeholder="Password" required>
+                <i class="fa-solid fa-eye-slash" id="eye-state" onclick="pass()"></i>
             </div>
             <div class="input-group">
                 <label for="password">Confirm Password:</label>
-                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+                <input type="password" id="pass-com" name="confirm_password" placeholder="Confirm Password" required>
+                <i class="fa-solid fa-eye-slash" id="eye-state" onclick="pass()"></i>
             </div>
             <div class="input-group">
                 <label for="password">Profile Image:</label>
