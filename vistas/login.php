@@ -29,7 +29,7 @@
                 <label for="password">Password:</label>
                 <div>
                         <input type="password" id="pass" name="pass" placeholder="Password" required>
-                        <i class="fa-solid fa-eye-slash" id="eye-state" onclick="pass()"></i>
+                        <i class="fa-solid fa-eye-slash" id="eye-state" onclick="pass('pass','eye-state')"></i>
                 </div>
             </div>
             <button type="submit" class="main-button-menu" name="login">Log In</button>

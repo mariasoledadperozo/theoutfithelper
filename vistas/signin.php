@@ -41,13 +41,17 @@
             </div>
             <div class="input-group">
                 <label for="password">Password:</label>
-                <input type="password" id="pass" name="pass" placeholder="Password" required>
-                <i class="fa-solid fa-eye-slash" id="eye-state" onclick="pass()"></i>
+                <div>
+                        <input type="password" id="pass" name="pass" placeholder="Password" required>
+                        <i class="fa-solid fa-eye-slash" id="eye-state" onclick="pass('pass', 'eye-state')"></i>
+                </div>
             </div>
             <div class="input-group">
                 <label for="password">Confirm Password:</label>
-                <input type="password" id="pass-com" name="confirm_password" placeholder="Confirm Password" required>
-                <i class="fa-solid fa-eye-slash" id="eye-state" onclick="pass()"></i>
+                <div>
+                    <input type="password" id="pass-com" name="confirm_password" placeholder="Confirm Password" required>
+                    <i class="fa-solid fa-eye-slash" id="eye-state-com" onclick="pass('pass-com','eye-state-com')"></i>
+                </div>
             </div>
             <div class="input-group">
                 <label for="password">Profile Image:</label>

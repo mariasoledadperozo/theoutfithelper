@@ -24,12 +24,12 @@ function showSessionAlert() {
 
 document.addEventListener('DOMContentLoaded', showSessionAlert);
 
-function pass(btn){
-    const pass = document.getElementById("pass"); 
-    const icon = document.getElementById("eye-state"); 
+function pass(btn, ico){
+    const pass = document.getElementById(btn); 
+    const icon = document.getElementById(ico); 
 
 
-    if (document.getElementById("pass").type == "password"){
+    if (document.getElementById(btn).type == "password"){
         pass.setAttribute('type', 'text'); 
         icon.classList.remove('fa-eye-slash');
         icon.classList.add('fa-eye');
