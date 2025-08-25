@@ -57,6 +57,12 @@
                 <label for="password">Profile Image:</label>
                 <input type="file" id="pfp" accept="image/*" name="pfp" placeholder="Your profile picture" required>
             </div>
+            <div class="terms-group">
+                    <label class="terms-label">Accept 
+                             <a href="">terms and conditions</a>
+                    </label>
+                    <input type="checkbox" name="terms" id="terms" required>
+            </div>
             <button type="submit" class="main-button-menu" name="SignIn">Sign In</button>
         </form>
         <p class="register-link">Have an account? 

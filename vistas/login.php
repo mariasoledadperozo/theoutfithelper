@@ -20,10 +20,10 @@
     <div id="side-bar-log-in">
         <h2>Welcome back!</h2>
         <p>Log in to start generating outfits and managing your closet.</p>
-        <form action="/controlador/userController.php" method="post">
+        <form action="../controlador/userController.php" method="post">
             <div class="input-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="text" id="username" name="user" placeholder="Username" required>
             </div>
             <div class="input-group">
                 <label for="password">Password:</label>

@@ -1,11 +1,37 @@
 <?php
 
 function verifyLogIn(){
-    include '../config/connection.php'; // Subir un nivel desde controlador/
+    include '../config/connection.php';
     if(isset($_POST['login'])){
-        // Código para login
+      session_start();
+      $user = mysqli_real_escape_string($conn, $_POST['user']);
+      $pass = mysqli_real_escape_string($conn, $_POST['pass']);
+
+      $sql = "SELECT id_user, password_user FROM username WHERE username_user='".$user."'";
+      $result = $conn ->query($sql);
+
+      if($result->num_rows == 1){
+        $row = $result->fetch_assoc();
+        $hashed_password = $row['password_user'];
+
+        if(password_verify($pass, $hashed_password)){
+            $_SESSION['user'] = $row['id_user'];
+            $_SESSION['mssg'] = 'You’re now logged in';
+            header('Location: ../index.php');
+            exit(); 
+        } else {
+            $_SESSION['mssg'] = 'User or password not found';
+            header('Location: ../vistas/login.php');
+            exit();
+        }
+      } else {
+         $_SESSION['mssg'] = 'User or password not found';
+         header('Location: ../vistas/login.php');
+         exit();
+      }
     }
 }
+
 
 function verifySignUp(){
     session_start();
