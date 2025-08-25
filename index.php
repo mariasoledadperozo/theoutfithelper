@@ -14,7 +14,6 @@ if(!isset($_SESSION['user'])){
     <title>The Outfit Helper - Home</title>
     <link rel="stylesheet" href="/theoutfithelper/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script src="assets/js/main.js"></script>
 </head>
 <body>
     

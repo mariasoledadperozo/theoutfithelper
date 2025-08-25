@@ -25,7 +25,7 @@
         </ul>
         </article>
 
-        <a href="/theoutfithelper/vistas/login.php">
+        <a href="controlador/userController.php?action=logout">
             <button class="secondary-button-menu">
                 log out
             </button>
@@ -37,11 +37,10 @@
 <header id="secondary-header">
         <img src="/theoutfithelper/assets/img/Atomo_Icono_Default.jpg" alt="foto de perfil"> 
         <span>Hello, <?php
-                    $nombre = $_GET['nombre'] ?? 'name'; 
-                    echo $nombre;
+                    echo $_SESSION['name'];
                     ?>!
         </span>
-        <a href="vistas/login.php">
+        <a href="controlador/userController.php?action=logout">
             <i class="fa-solid fa-right-from-bracket"></i>
         </a>
 </header>

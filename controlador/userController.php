@@ -7,7 +7,7 @@ function verifyLogIn(){
       $user = mysqli_real_escape_string($conn, $_POST['user']);
       $pass = mysqli_real_escape_string($conn, $_POST['pass']);
 
-      $sql = "SELECT id_user, password_user FROM username WHERE username_user='".$user."'";
+      $sql = "SELECT id_user, password_user, name_user FROM username WHERE username_user='".$user."'";
       $result = $conn ->query($sql);
 
       if($result->num_rows == 1){
@@ -17,6 +17,7 @@ function verifyLogIn(){
         if(password_verify($pass, $hashed_password)){
             $_SESSION['user'] = $row['id_user'];
             $_SESSION['mssg'] = 'You’re now logged in';
+            $_SESSION['name'] = $row['name_user']; 
             header('Location: ../index.php');
             exit(); 
         } else {
@@ -71,6 +72,14 @@ function verifySignUp(){
             }
     }
 
+    function closeSession(){
+        session_start(); 
+        session_destroy(); 
+        header('Location: ../vistas/login.php');
+        exit();
+    }
+
+
 
 /*********************/
 
@@ -80,5 +89,9 @@ if(isset($_POST['login'])){
 
 if(isset($_POST['SignIn'])){
     verifySignUp();
+}
+
+if(isset($_GET['action'])){
+    closeSession(); 
 }
 ?>

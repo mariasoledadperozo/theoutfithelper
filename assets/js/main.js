@@ -9,13 +9,12 @@ function showSessionAlert() {
         .then(data => {
 
             if (data.has_session) {
-
                 if (data.message.includes("successfully") || data.message.includes("logged") ) {
                     toastr.success(data.message, 'Successfully!'); 
                 } else {
                     toastr.error(data.message, 'Error'); 
                 }
-            }
+            } 
         })
         .catch(error => {
             console.error('Error:', error);
