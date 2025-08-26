@@ -9,7 +9,6 @@
     <title>The Outfit Helper - Sign In </title>
     <link rel="stylesheet" href="/theoutfithelper/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <script src="../assets/js/main.js"></script>
 </head>
 <body>
@@ -55,7 +54,7 @@
             </div>
             <div class="input-group">
                 <label for="password">Profile Image:</label>
-                <input type="file" id="pfp" accept="image/*" name="pfp" placeholder="Your profile picture" required>
+                <input type="file" id="pfp" accept="image/*" name="pfp" placeholder="Your profile picture">
             </div>
             <div class="terms-group">
                     <label class="terms-label">Accept 

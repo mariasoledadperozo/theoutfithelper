@@ -43,13 +43,30 @@ function verifySignUp(){
         $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
         $email= mysqli_real_escape_string($conn, $_POST['email']);
         $pass = mysqli_real_escape_string($conn, $_POST['pass']);
+
+        if(isset($_FILES['pfp'])){
+        $pfp = $_FILES['pfp']['tmp_name'];
+        $imgName = $_FILES['pfp']['name'];
+        $imgType = strtoLower(pathinfo($imgName, PATHINFO_EXTENSION)); 
+        $sizeImg = $_FILES['pfp']['size'];
+        $sizeImg = $sizeImg / 1000; 
+
+        if($imgType == "jpg" or $imgType == "jpeg" or $imgType == "png"){
+            $register = $conn->query(); 
+        }else{
+            $_SESSION['mssg'] = 'The file must be in .jpg, .png, or .jpeg format.'; 
+            header('Location: ../vistas/sigin.php');
+            exit();
+        };
+        };  
         
+        /*
         $pfp = '';
         if(isset($_FILES['pfp']) && $_FILES['pfp']['error'] == 0) {
             $upload_dir = '../assets/img/uploads/';
             $pfp = $upload_dir . basename($_FILES['pfp']['name']);
             move_uploaded_file($_FILES['pfp']['tmp_name'], $pfp);
-        }
+        }*/
 
         $pass_encrypted = password_hash($pass, PASSWORD_DEFAULT);
         $sqluser="SELECT username_user FROM username WHERE username_user ='". $username."' ";
