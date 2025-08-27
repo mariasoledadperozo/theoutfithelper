@@ -33,7 +33,6 @@
             <a href="index.php">Home</a>
             <a href="">Outfit Generator</a>
             <a href="">Edit closet</a>
-            <a href="">About us</a>
         </article>
         <article id="footer-contact">
             <p class="footer-title">Get in touch</p>

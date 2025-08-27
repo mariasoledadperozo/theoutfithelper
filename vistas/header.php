@@ -35,7 +35,11 @@
 
 
 <header id="secondary-header">
-        <img src="/theoutfithelper/assets/img/Atomo_Icono_Default.jpg" alt="foto de perfil"> 
+    <?php 
+        include 'controlador/userController.php'; 
+        $pfp = getProfilePicture($_SESSION['user']); 
+    ?>
+        <img src="/theoutfithelper/assets/img/uploads/<?php echo $pfp?>" alt="foto de perfil"> 
         <span>Hello, <?php
                     echo $_SESSION['name'];
                     ?>!

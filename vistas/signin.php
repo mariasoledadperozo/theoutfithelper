@@ -23,23 +23,23 @@
         <p>Create your account to start managing your closet.</p>
         <form action="/theoutfithelper/controlador/userController.php" method="POST">
             <div class="input-group">
-                <label for="username">Username:</label>
+                <label for="username">Username*:</label>
                 <input type="text" id="username" name="username" placeholder="Username"  maxlength="30" required>
             </div>
             <div class="input-group">
-                <label for="name">Name:</label>
+                <label for="name">Name*:</label>
                 <input type="text" id="name" name="name" placeholder="Name" required>
             </div>
             <div class="input-group">
                 <label for="name">Last Name:</label>
-                <input type="text" id="lastname" name="lastname" placeholder="LastName" required>
+                <input type="text" id="lastname" name="lastname" placeholder="LastName">
             </div>
             <div class="input-group">
-                <label for="name">Email:</label>
+                <label for="name">Email*:</label>
                 <input type="email" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="input-group">
-                <label for="password">Password:</label>
+                <label for="password">Password*:</label>
                 <div>
                         <input type="password" id="pass" name="pass" placeholder="Password" required>
                         <i class="fa-solid fa-eye-slash" id="eye-state" onclick="pass('pass', 'eye-state')"></i>
@@ -54,7 +54,7 @@
             </div>
             <div class="input-group">
                 <label for="password">Profile Image:</label>
-                <input type="file" id="pfp" accept="image/*" name="pfp" placeholder="Your profile picture">
+                <input type="file" id="pfp" accept="image/*" name="pfp" placeholder="Your profile picture" enctype="multipart/form-data">
             </div>
             <div class="terms-group">
                     <label class="terms-label">Accept 

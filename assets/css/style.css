@@ -62,12 +62,12 @@ h1 {
     line-height: 0.8;
     margin: 5rem 0 1rem 0;
     text-align: center;
-    border-bottom: var(--color-primary-brown) solid 2px;
     padding-bottom: 1px;
 }
 
 h1 > span {
     font-weight: bold;
+    font-family: 'Zilla Slab', serif;
 }
 
 a {
