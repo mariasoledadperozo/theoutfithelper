@@ -44,29 +44,6 @@ function verifySignUp(){
         $email= mysqli_real_escape_string($conn, $_POST['email']);
         $pass = mysqli_real_escape_string($conn, $_POST['pass']);
 
-        if(isset($_FILES['pfp'])){
-        $pfp = $_FILES['pfp']['tmp_name'];
-        $imgName = $_FILES['pfp']['name'];
-        $imgType = strtoLower(pathinfo($imgName, PATHINFO_EXTENSION)); 
-        $sizeImg = $_FILES['pfp']['size'];
-        $sizeImg = $sizeImg / 1000; 
-
-        if($imgType == "jpg" or $imgType == "jpeg" or $imgType == "png"){
-            $register = $conn->query(); 
-        }else{
-            $_SESSION['mssg'] = 'The file must be in .jpg, .png, or .jpeg format.'; 
-            header('Location: ../vistas/sigin.php');
-            exit();
-        };
-        };  
-        
-        /*
-        $pfp = '';
-        if(isset($_FILES['pfp']) && $_FILES['pfp']['error'] == 0) {
-            $upload_dir = '../assets/img/uploads/';
-            $pfp = $upload_dir . basename($_FILES['pfp']['name']);
-            move_uploaded_file($_FILES['pfp']['tmp_name'], $pfp);
-        }*/
 
         $pass_encrypted = password_hash($pass, PASSWORD_DEFAULT);
         $sqluser="SELECT username_user FROM username WHERE username_user ='". $username."' ";
@@ -79,10 +56,35 @@ function verifySignUp(){
                 exit();
             }
             
-            $sql_user = "INSERT INTO username(username_user, name_user, lastname_user, email_user, password_user, img_user)
-            VALUES('$username', '$name', '$lastname', '$email', '$pass_encrypted', '$pfp')";
+            $sql_user = "INSERT INTO username(username_user, name_user, lastname_user, email_user, password_user)
+            VALUES('$username', '$name', '$lastname', '$email', '$pass_encrypted')";
             $result_user = $conn->query($sql_user);
             if($result_user){
+
+                    if(isset($_FILES['pfp'])){
+                            $pfp = $_FILES['pfp']['tmp_name'];
+                            $imgName = $_FILES['pfp']['name'];
+                            $imgType = strtoLower(pathinfo($imgName, PATHINFO_EXTENSION)); 
+                            $sizeImg = $_FILES['pfp']['size'];
+                            $sizeImg = $sizeImg / 1000; 
+                            $upload_dir = '../assets/img/uploads/';
+
+                                if($imgType == "jpg" or $imgType == "jpeg" or $imgType == "png"){
+                                     $idUser = $conn->insert_id; 
+                                    $newFileName = uniqid("pfp_").".".$imgType; 
+                                    $dir = $upload_dir.$newFileName;
+                                }else{
+                                $_SESSION['mssg'] = 'The file must be in .jpg, .png, or .jpeg format.'; 
+                                header('Location: ../vistas/sigin.php');
+                                exit();
+                                };
+                                }else{
+                                $idUser = $conn->insert_id;
+                                $sql = "INSERT INTO profilepicture(ID_USER, ID_IMG) VALUES ($idUser, 'default.jpg')";
+                                $conn->query($sql);
+                                };  
+
+
                 $_SESSION['mssg'] = 'The user has been created successfully!'; 
                 header('Location: ../vistas/login.php');
                 exit();
