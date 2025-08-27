@@ -105,10 +105,10 @@ function verifySignUp(){
     }
 
 
-    function getProfilePicture($user){
+    function getProfilePicture(){
         include __DIR__ .'/../config/connection.php';
         global $conn; 
-        $sql = 'SELECT NAME_IMG FROM profilepicture WHERE ID_USER ='.$user; 
+        $sql = 'SELECT NAME_IMG FROM profilepicture WHERE ID_USER ='.$_SESSION['user']; 
         $result = $conn->query($sql);
 
     if($result && $result->num_rows > 0){

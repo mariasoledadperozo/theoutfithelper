@@ -37,7 +37,7 @@
 <header id="secondary-header">
     <?php 
         include 'controlador/userController.php'; 
-        $pfp = getProfilePicture($_SESSION['user']); 
+        $pfp = getProfilePicture();
     ?>
         <img src="/theoutfithelper/assets/img/uploads/<?php echo $pfp?>" alt="foto de perfil"> 
         <span>Hello, <?php

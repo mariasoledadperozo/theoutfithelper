@@ -21,7 +21,7 @@
             </span>
         </h2>
         <p>Create your account to start managing your closet.</p>
-        <form action="/theoutfithelper/controlador/userController.php" method="POST">
+        <form action="/theoutfithelper/controlador/userController.php" method="POST" enctype="multipart/form-data">
             <div class="input-group">
                 <label for="username">Username*:</label>
                 <input type="text" id="username" name="username" placeholder="Username"  maxlength="30" required>
@@ -54,7 +54,7 @@
             </div>
             <div class="input-group">
                 <label for="password">Profile Image:</label>
-                <input type="file" id="pfp" accept="image/*" name="pfp" placeholder="Your profile picture" enctype="multipart/form-data">
+                <input type="file" id="pfp" accept="image/*" name="pfp" placeholder="Your profile picture">
             </div>
             <div class="terms-group">
                     <label class="terms-label">Accept 
