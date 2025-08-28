@@ -6,7 +6,7 @@ if(!isset($_SESSION['user'])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,20 +18,63 @@ if(!isset($_SESSION['user'])){
     <div class="main-wrapper">
         <?php include 'header.php'; ?>
             <article id="piece-group">
-                <fieldset>
-                          <legend>Top</legend>
-                          <section>
                                 <div class="piece-card">
-                                    <img src="../assets/img/top-proof.png" alt="Top pic" class="img-piece">
+                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
+                                    <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                    </button>
                                 </div>
-                          </section>
-                </fieldset>
-        </article>
+                                <div class="piece-card">
+                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
+                                    <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="piece-card">
+                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
+                                    <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="piece-card">
+                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
+                                    <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="piece-card">
+                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
+                                    <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="piece-card">
+                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
+                                    <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="piece-card">
+                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
+                                    <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="piece-card">
+                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
+                                    <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="piece-card">
+                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
+                                    <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+</article>
     </div>
-
     <?php include 'background.php'; ?>
     <?php include 'footer.php'; ?>
-
-    
 </body>
 </html>
