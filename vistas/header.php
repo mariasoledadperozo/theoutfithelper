@@ -8,12 +8,12 @@
         </a>
         <ul>
             <li>
-                <a href="">
+                <a href="../index.php">
                     <button class="main-button-menu">generate outfit</button>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="vistas/editcloset.php">
                     <button class="main-button-menu">edit closet</button>
                 </a>
             </li>
@@ -25,7 +25,7 @@
         </ul>
         </article>
 
-        <a href="controlador/userController.php?action=logout">
+        <a href="/theoutfithelper/controlador/userController.php?action=logout">
             <button class="secondary-button-menu">
                 log out
             </button>
@@ -36,7 +36,7 @@
 
 <header id="secondary-header">
     <?php 
-        include 'controlador/userController.php'; 
+       include __DIR__ . '/../controlador/userController.php'; 
         $pfp = getProfilePicture();
     ?>
         <img src="/theoutfithelper/assets/img/uploads/<?php echo $pfp?>" alt="foto de perfil"> 
@@ -44,7 +44,7 @@
                     echo $_SESSION['name'];
                     ?>!
         </span>
-        <a href="controlador/userController.php?action=logout">
+        <a href="/theoutfithelper/controlador/userController.php?action=logout">
             <i class="fa-solid fa-right-from-bracket"></i>
         </a>
 </header>

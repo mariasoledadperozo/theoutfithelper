@@ -340,10 +340,11 @@ footer {
 
 .card-clothing {
     position: relative;
-    width: 34rem;
+    width: 40rem;
     height: 32rem; 
     display: flex;
     flex-direction: row;
+    overflow: hidden; 
 }
 
 #clothing-cards::after {
@@ -499,3 +500,24 @@ footer {
     width: 1rem;
 }
 
+/*****************/
+
+#piece-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    transform: translateX(30rem);
+    margin-top: 7rem;
+};
+
+.piece-card {
+    overflow: hidden;
+    width: 1rem;
+    height: 1rem; 
+};
+
+.img-piece {
+  width: 1rem;
+  height: 1rem;
+}

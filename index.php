@@ -20,31 +20,12 @@ if(!isset($_SESSION['user'])){
         <div class="main-wrapper">
         <?php include 'vistas/header.php'; ?>
             <article id="clothing-cards">
-            <div class="card-button">
-                <section class="card-clothing">
-                        <button class="arrow-button">
-                                <i class="fa-solid fa-arrow-left"></i>
-                         </button>
-                                    <img src="/theoutfithelper/assets/img/top.png" alt="Clothing Item 1" id="clothing-img">
-                        <button class="arrow-button">
-                                 <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                </section>
-                <button class="shuffle-button">shuffle!</button>
-            </div>
-
-              <div class="card-button">
-                <section class="card-clothing">
-                        <button class="arrow-button">
-                                <i class="fa-solid fa-arrow-left"></i>
-                         </button>
-                                    <img src="/theoutfithelper/assets/img/top.png" alt="Clothing Item 1" id="clothing-img">
-                        <button class="arrow-button">
-                                 <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                </section>
-                <button class="shuffle-button">shuffle!</button>
-            </div>
+                <?php 
+                include 'controlador/pieceController.php';
+               echo generateRandomPiece('T'); 
+               echo generateRandomPiece('B'); 
+                ?>
+        </article>
     </div>
 
     <?php include 'vistas/background.php'; ?>

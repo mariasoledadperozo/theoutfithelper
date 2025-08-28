@@ -46,7 +46,6 @@ function verifySignUp(){
 
     $pass_encrypted = password_hash($pass, PASSWORD_DEFAULT);
 
-    // Verificar si existe el usuario
     $sqluser="SELECT username_user FROM username WHERE username_user ='". $username."' ";
     $result_user = $conn->query($sqluser);
     $rows_user = $result_user->num_rows;
@@ -56,8 +55,7 @@ function verifySignUp(){
         header('Location: ../vistas/login.php');
         exit();
     }
-            
-    // Insertar usuario
+
     $sql_user = "INSERT INTO username(username_user, name_user, lastname_user, email_user, password_user)
                  VALUES('$username', '$name', '$lastname', '$email', '$pass_encrypted')";
     $result_user = $conn->query($sql_user);
