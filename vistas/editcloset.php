@@ -15,64 +15,120 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+    <?php include 'upper-header.php'; ?>
     <div class="main-wrapper">
-        <?php include 'header.php'; ?>
-            <article id="piece-group">
-                                <div class="piece-card">
-                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
-                                    <button>
-                                            <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                <div class="piece-card">
-                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
-                                    <button>
-                                            <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                <div class="piece-card">
-                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
-                                    <button>
-                                            <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                <div class="piece-card">
-                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
-                                    <button>
-                                            <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                <div class="piece-card">
-                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
-                                    <button>
-                                            <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                <div class="piece-card">
-                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
-                                    <button>
-                                            <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                <div class="piece-card">
-                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
-                                    <button>
-                                            <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                <div class="piece-card">
-                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
-                                    <button>
-                                            <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                <div class="piece-card">
-                                    <img  class="piece-img" src="../assets/img/top-proof.png" alt="">
-                                    <button>
-                                            <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-</article>
+        <?php include 'side-header.php'; ?>
+        <div class="content-wrapper">
+            <div class="title-cards">
+                <h4>Tops</h4>  
+                <button class="add-button">
+                            <i class="fa-solid fa-plus"></i>
+                </button>
+                <article id="piece-group">
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                </article>
+            </div>
+                     <div class="title-cards">
+                <h4>Tops</h4>
+                <article id="piece-group">
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                    <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
+                    </div>
+                </article>
+            </div>
+        </div>
     </div>
     <?php include 'background.php'; ?>
     <?php include 'footer.php'; ?>
