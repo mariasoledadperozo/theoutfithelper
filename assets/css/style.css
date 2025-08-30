@@ -5,6 +5,8 @@
     --color-font-light: #FFFFFF; 
     --color-background-dark: #FFB6C1;
     --color-font-gray: #D3D3D3; 
+    --color-light-gray: #F8F9FA;
+    --color-font-dark-gray: #696E71;
 }
 
 /********************/
@@ -102,6 +104,9 @@ main {
     padding-left: 25rem;
 }
 
+.d-none {
+    display: none !important;
+}
 
 /********************/ 
 
@@ -398,9 +403,6 @@ footer {
 
 /*******************/ 
 
-.d-none {
-    display: none;
-}
 
 #side-bar-log-in{
     background-color: var(--color-secundary-dark-pink);
@@ -573,4 +575,110 @@ footer {
         border: none; 
         border-radius: 25%;
         cursor: pointer;
+}
+
+/*************/
+
+#pop-up {
+  width: 25rem;
+  height: 25rem;
+  background-color: var(--color-light-gray);
+  border-radius: 1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed; 
+  z-index: 20;
+}
+
+#pop-up > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center; 
+    padding-top: 4rem;
+    gap: 2.5rem;
+    margin: auto;
+}
+
+.elements-form > input, .elements-form > select{
+    background-color: var(--color-font-gray);
+    border-radius: 5%;
+    border: none;
+    padding: 0.5rem;
+}
+
+.elements-form > label {
+    color: var(--color-font-dark-gray);
+}
+
+.elements-form{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    height: 3rem; 
+    width: 15rem;
+}
+
+#pop-up-main-title{
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    justify-content: space-around;
+    align-items: center;
+    text-align: right;
+}
+
+#pop-up-main-title > h3 {
+    text-align: center;
+}
+
+#pop-up > i {
+  position: absolute;
+  top: 15px; 
+  right: 15px; 
+  color: var(--color-font-gray);
+  cursor: pointer;
+}
+
+#button-form {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 15rem;
+}
+
+#button-form > button {
+    font-family: 'Inter', serif;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 8%;
+    font-weight: 200;
+    cursor: pointer;
+    gap: 20px;
+}
+
+.pop-up-main-button{
+    background-color: var(--color-primary-brown);
+    color: var(--color-font-light);
+    border: none;
+}
+
+.pop-up-second-button{
+    background-color: var(--color-font-light);
+    color: var(--color-primary-brown);
+     border: 1px solid var(--color-primary-brown);
+}
+
+#overlay-pop-up{
+  position: fixed;  
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15; 
 }

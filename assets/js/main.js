@@ -38,3 +38,14 @@ function pass(btn, ico){
         icon.classList.add('fa-eye-slash');
     }
 }
+
+function popUp(){
+    const popUp = document.getElementById('overlay-pop-up');
+    const hasClass = popUp.classList.contains('d-none'); 
+    if(hasClass == true){
+       popUp.classList.remove('d-none');
+    }else{
+        popUp.classList.add('d-none');
+    }
+    
+}
