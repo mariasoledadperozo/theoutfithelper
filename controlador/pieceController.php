@@ -1,6 +1,6 @@
 <?php 
 
-    function generateRandomPiece($pieceType){
+function generateRandomPiece($pieceType){
           include __DIR__ . '/../config/connection.php';
 
 $sql = 'SELECT COUNT(*) as total FROM piece WHERE type_piece = "'.$pieceType.'" AND id_user = '.$_SESSION['user'];
@@ -56,13 +56,66 @@ if ($rows_piece < 1) {
 }
 
           };
-    function uploadPiece($pieceType){
+function uploadPiece() {
+    session_start(); 
+    include __DIR__ . '/../config/connection.php';
 
-    };
+    if (!isset($_SESSION['user'])) {
+        die("Usuario no autenticado");
+    }
+
+    $type = $_POST['type']; 
+    $color = $_POST['color']; 
+    $user = $_SESSION['user']; 
+
+    $pic = $_FILES['picture']['tmp_name'];
+    $namePiece = $_FILES['picture']['name'];
+    $imgType = strtolower(pathinfo($namePiece, PATHINFO_EXTENSION));
+
+
+    $uploaddir = '../assets/img/'.$type.'/';
+
+
+    if($imgType == "jpg" || $imgType == "jpeg" || $imgType == "png") {
+        $newFileName = uniqid("piece_").".".$imgType; 
+        $dir = $uploaddir.$newFileName;
+
+        if (move_uploaded_file($pic, $dir)) {
+
+            $sql = $conn->prepare("INSERT INTO piece (name_piece, type_piece, color_piece, img_piece, id_user) 
+                                   VALUES (?, ?, ?, ?, ?)");
+            $sql->bind_param("ssssi", $namePiece, $type, $color, $newFileName, $user);
+
+            if ($sql->execute()) {
+                $_SESSION['mssg'] = 'The piece has been uploaded succesfully'; 
+                header('Location: ../vistas/editcloset.php');
+                exit();
+            } else {
+                $_SESSION['mssg'] = 'The piece could not be uploaded'; 
+                header('Location: ../vistas/editcloset.php');
+                exit();
+            }
+        } else {
+              $_SESSION['mssg'] = 'The piece could not be uploaded'; 
+                header('Location: ../vistas/editcloset.php');
+                exit();
+        }
+    } else {
+          $_SESSION['mssg'] = 'The document must be jpg, jpeg or png format'; 
+                header('Location: ../vistas/editcloset.php');
+                exit();
+    }
+}; 
     function nextPiece($pieceType){
 
     };
     function deletePiece(){
 
     }; 
+
+    /***********/ 
+
+    if(isset($_POST['upload-piece'])){
+        uploadPiece();
+    }
 ?>
