@@ -37,6 +37,7 @@ if ($rows_piece < 1) {
     if ($pieceType == 'T') $folder = 'top';
     else if ($pieceType == 'B') $folder = 'bottom';
     else if ($pieceType == 'S') $folder = 'shoes';
+    $_SESSION['actualPiecePic'] = $row_piece['img_piece']; 
 
     return '
     <div class="card-button">
@@ -106,12 +107,66 @@ function uploadPiece() {
                 exit();
     }
 }; 
-    function nextPiece($pieceType){
+    function nextPiece($pieceType, $actualPiece){
+         session_start(); 
+         include __DIR__ . '/../config/connection.php';
+         $actualPiece = $actualPiece + 1; 
+         $sql = $conn->prepare('SELECT * FROM piece 
+         WHERE id_piece = ? 
+         AND type_piece = ?
+         AND id_user = ?'); 
+
+        try{
+         $sql->bind_param("sss", $_SESSION['user'], $pieceType, $actualPiece);
+         $resultPiece= $conn->query($sql); 
+         $rowPiece = $resultPiece->fetch_assoc(); 
+         
+         return '
+    <div class="card-button">
+        <section class="card-clothing">
+            <button class="arrow-button">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <img src="/theoutfithelper/assets/img/'.$pieceType.'/'.$rowPiece['img_piece'].'" alt="Clothing Item '.$pieceType.'" id="clothing-img">
+            <button class="arrow-button">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+        <a href="/controlador/pieceController.php">
+            <button class="shuffle-button">shuffle!</button>
+        </a>
+    </div>'; 
+        }catch(error){
+             return '
+             <div class="card-button">
+        <section class="card-clothing">
+            <button class="arrow-button">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <img src="/theoutfithelper/assets/img/'.$pieceType.'/'.$_SESSION['actualPiecePic'] .'" alt="Clothing Item '.$pieceType.'" id="clothing-img">
+            <button class="arrow-button">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+        <a href="/controlador/pieceController.php">
+            <button class="shuffle-button">shuffle!</button>
+        </a>
+    </div>'; 
+        };
 
     };
+
+    function lastPiece(){
+
+    }; 
+
     function deletePiece(){
 
     }; 
+
+    function showAllPieces($pieceType){
+        
+    }
 
     /***********/ 
 
