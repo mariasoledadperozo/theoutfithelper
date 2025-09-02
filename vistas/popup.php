@@ -2,7 +2,7 @@
         <article class="d-none" id="overlay-pop-up">
         <article id="pop-up">
         <i class="fa-solid fa-x" onclick="popUp()"></i>
-        <form action="/controlador/pieceController.php" method="post" enctype="multipart/form-data">
+        <form action="../controlador/pieceController.php" method="post" enctype="multipart/form-data">
             <section id="pop-up-main-title">
                 <h3>Add new piece</h3>
             </section>

@@ -137,6 +137,7 @@ function uploadPiece() {
         </a>
     </div>'; 
         }catch(error){
+            $_SESSION['mssg'] = 'Theres no more clothing pieces saved'; 
              return '
              <div class="card-button">
         <section class="card-clothing">
@@ -156,8 +157,53 @@ function uploadPiece() {
 
     };
 
-    function lastPiece(){
+    function lastPiece($pieceType, $actualPiece){
+        session_start(); 
+         include __DIR__ . '/../config/connection.php';
+         $actualPiece = $actualPiece - 1; 
+         $sql = $conn->prepare('SELECT * FROM piece 
+         WHERE id_piece = ? 
+         AND type_piece = ?
+         AND id_user = ?'); 
 
+        try{
+         $sql->bind_param("sss", $_SESSION['user'], $pieceType, $actualPiece);
+         $resultPiece= $conn->query($sql); 
+         $rowPiece = $resultPiece->fetch_assoc(); 
+         
+         return '
+    <div class="card-button">
+        <section class="card-clothing">
+            <button class="arrow-button">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <img src="/theoutfithelper/assets/img/'.$pieceType.'/'.$rowPiece['img_piece'].'" alt="Clothing Item '.$pieceType.'" id="clothing-img">
+            <button class="arrow-button">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+        <a href="/controlador/pieceController.php">
+            <button class="shuffle-button">shuffle!</button>
+        </a>
+    </div>'; 
+        }catch(error){
+              $_SESSION['mssg'] = 'Theres no more clothing pieces saved'; 
+             return '
+             <div class="card-button">
+        <section class="card-clothing">
+            <button class="arrow-button">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <img src="/theoutfithelper/assets/img/'.$pieceType.'/'.$_SESSION['actualPiecePic'] .'" alt="Clothing Item '.$pieceType.'" id="clothing-img">
+            <button class="arrow-button">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+        <a href="/controlador/pieceController.php">
+            <button class="shuffle-button">shuffle!</button>
+        </a>
+    </div>'; 
+        };
     }; 
 
     function deletePiece(){
@@ -165,7 +211,16 @@ function uploadPiece() {
     }; 
 
     function showAllPieces($pieceType){
-        
+         session_start(); 
+         include __DIR__ . '/../config/connection.php';
+         $sql = $conn->prepare("SELECT name_piece FROM piece WHERE id_user = ? AND type_piece = ?");
+         $sql->bind_param("ss", $_SESSION['user'], $pieceType); 
+         $sql->execute();
+         $resultPiece = $sqñ->fetchAll();
+
+         foreach($resultPiece as $rowPiece){
+
+         }
     }
 
     /***********/ 
