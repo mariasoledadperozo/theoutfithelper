@@ -219,7 +219,14 @@ function uploadPiece() {
          $resultPiece = $sqñ->fetchAll();
 
          foreach($resultPiece as $rowPiece){
-
+            echo '
+                <div class="piece-card">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <img class="piece-img" src="../assets/img/'.$pieceType.'/'.$rowPiece['name_piece'].'" alt="">
+                    </div>
+            ';
          }
     }
 

@@ -27,107 +27,19 @@ if(!isset($_SESSION['user'])){
                 </button>
 
                 <article id="piece-group">
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
+                   <?php 
+                        include "../controlador/pieceController.php";
+                        showAllPieces('top');
+                   ?>
                 </article>
             </div>
                      <div class="title-cards">
-                <h4>Tops</h4>
+                <h4>Bottoms</h4>
                 <article id="piece-group">
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
-                    <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/top-proof.png" alt="">
-                    </div>
+                 <?php 
+                        include "../controlador/pieceController.php";
+                        showAllPieces('bottom');
+                   ?>
                 </article>
             </div>
         </div>
