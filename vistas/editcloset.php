@@ -14,6 +14,10 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" href="/theoutfithelper/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="../assets/js/main.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
 <body>
     <?php include 'upper-header.php'; ?>
@@ -29,16 +33,18 @@ if(!isset($_SESSION['user'])){
                 <article id="piece-group">
                    <?php 
                         include "../controlador/pieceController.php";
-                        showAllPieces('top');
+                        echo showAllPieces('top');
                    ?>
                 </article>
             </div>
                      <div class="title-cards">
                 <h4>Bottoms</h4>
+                <button class="add-button" onclick="popUp()">
+                            <i class="fa-solid fa-plus"></i>
+                </button>
                 <article id="piece-group">
                  <?php 
-                        include "../controlador/pieceController.php";
-                        showAllPieces('bottom');
+                        echo showAllPieces('bottom');
                    ?>
                 </article>
             </div>

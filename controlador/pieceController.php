@@ -1,112 +1,101 @@
 <?php 
 
-function generateRandomPiece($pieceType){
-          include __DIR__ . '/../config/connection.php';
 
-$sql = 'SELECT COUNT(*) as total FROM piece WHERE type_piece = "'.$pieceType.'" AND id_user = '.$_SESSION['user'];
-$result_piece = $conn->query($sql);
+function generateRandomPiece($pieceType) {
+    include __DIR__ . '/../config/connection.php';
+    $userId = $_SESSION['user'];
 
-$row = $result_piece->fetch_assoc();
-$rows_piece = $row['total'];
+    $sql = $conn->prepare('SELECT COUNT(*) as total FROM piece WHERE type_piece = ? AND id_user = ?');
+    $sql->bind_param("si", $pieceType, $userId);
+    $sql->execute();
+    $result_piece = $sql->get_result();
+    $row = $result_piece->fetch_assoc();
+    $rows_piece = $row['total'];
 
-if ($rows_piece < 1) {
-    return '
-    <div class="card-button">
-        <section class="card-clothing">
-            <button class="arrow-button">
-                <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <img src="/theoutfithelper/assets/img/defaultpiece.jpg" alt="Clothing Item" id="clothing-img">
-            <button class="arrow-button">
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </section>
-        <a href="/controlador/pieceController.php">
-            <button class="shuffle-button">shuffle!</button>
-        </a>
-    </div>';
-} else {
-    $sql = 'SELECT img_piece 
-            FROM piece 
-            WHERE type_piece = "'.$pieceType.'" 
-              AND id_user = '.$_SESSION['user'].' 
-            ORDER BY RAND() LIMIT 1';
-    $result_piece = $conn->query($sql);
-    $row_piece = $result_piece->fetch_assoc();
+    if ($rows_piece < 1) {
+        return '
+        <div class="card-button">
+            <section class="card-clothing">
+                <button class="arrow-button">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <img src="/theoutfithelper/assets/img/defaultpiece.jpg" alt="Clothing Item" id="clothing-img">
+                <button class="arrow-button">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </section>
+            <a href="/controlador/pieceController.php">
+                <button class="shuffle-button">shuffle!</button>
+            </a>
+        </div>';
+    } else {
 
-    if ($pieceType == 'T') $folder = 'top';
-    else if ($pieceType == 'B') $folder = 'bottom';
-    else if ($pieceType == 'S') $folder = 'shoes';
-    $_SESSION['actualPiecePic'] = $row_piece['img_piece']; 
+        $sql = $conn->prepare('SELECT img_piece FROM piece WHERE type_piece = ? AND id_user = ? ORDER BY RAND() LIMIT 1');
+        $sql->bind_param("si", $pieceType, $userId);
+        $sql->execute();
+        $result_piece = $sql->get_result();
+        $row_piece = $result_piece->fetch_assoc();
 
-    return '
-    <div class="card-button">
-        <section class="card-clothing">
-            <button class="arrow-button">
-                <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <img src="/theoutfithelper/assets/img/'.$folder.'/'.$row_piece['img_piece'].'" alt="Clothing Item '.$folder.'" id="clothing-img">
-            <button class="arrow-button">
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </section>
-        <a href="/controlador/pieceController.php">
-            <button class="shuffle-button">shuffle!</button>
-        </a>
-    </div>';
+        $_SESSION['actualPiecePic'] = $row_piece['img_piece'];
+
+        return '
+        <div class="card-button">
+            <section class="card-clothing">
+                <button class="arrow-button">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <img src="/theoutfithelper/assets/img/' . $pieceType . '/' . $row_piece['img_piece'] . '" alt="Clothing Item ' . $pieceType . '" id="clothing-img">
+                <button class="arrow-button">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </section>
+            <a href="/controlador/pieceController.php">
+                <button class="shuffle-button">shuffle!</button>
+            </a>
+        </div>';
+    }
 }
 
-          };
-function uploadPiece() {
-    session_start(); 
+
+function uploadPieces() {
+    session_start();
     include __DIR__ . '/../config/connection.php';
 
-    if (!isset($_SESSION['user'])) {
-        die("Usuario no autenticado");
-    }
+    $type = $_POST['type'];
+    $color = $_POST['color'];
+    $user = $_SESSION['user'];
 
-    $type = $_POST['type']; 
-    $color = $_POST['color']; 
-    $user = $_SESSION['user']; 
+    $pictures = $_FILES['pictures'];
+    $uploaddir = '../assets/img/' . $type . '/';
 
-    $pic = $_FILES['picture']['tmp_name'];
-    $namePiece = $_FILES['picture']['name'];
-    $imgType = strtolower(pathinfo($namePiece, PATHINFO_EXTENSION));
+    foreach ($pictures['tmp_name'] as $index => $tmpName) {
+        $namePiece = $pictures['name'][$index];
+        $imgType = strtolower(pathinfo($namePiece, PATHINFO_EXTENSION));
 
+        if ($imgType == "jpg" || $imgType == "jpeg" || $imgType == "png") {
+            $newFileName = uniqid("piece_") . "." . $imgType;
+            $dir = $uploaddir . $newFileName;
 
-    $uploaddir = '../assets/img/'.$type.'/';
+            if (move_uploaded_file($tmpName, $dir)) {
+                $sql = $conn->prepare("INSERT INTO piece (name_piece, type_piece, color_piece, img_piece, id_user) 
+                                       VALUES (?, ?, ?, ?, ?)");
+                $sql->bind_param("ssssi", $namePiece, $type, $color, $newFileName, $user);
 
-
-    if($imgType == "jpg" || $imgType == "jpeg" || $imgType == "png") {
-        $newFileName = uniqid("piece_").".".$imgType; 
-        $dir = $uploaddir.$newFileName;
-
-        if (move_uploaded_file($pic, $dir)) {
-
-            $sql = $conn->prepare("INSERT INTO piece (name_piece, type_piece, color_piece, img_piece, id_user) 
-                                   VALUES (?, ?, ?, ?, ?)");
-            $sql->bind_param("ssssi", $namePiece, $type, $color, $newFileName, $user);
-
-            if ($sql->execute()) {
-                $_SESSION['mssg'] = 'The piece has been uploaded succesfully'; 
-                header('Location: ../vistas/editcloset.php');
-                exit();
+                if (!$sql->execute()) {
+                    $_SESSION['mssg'] = 'Some pieces could not be uploaded.';
+                }
             } else {
-                $_SESSION['mssg'] = 'The piece could not be uploaded'; 
-                header('Location: ../vistas/editcloset.php');
-                exit();
+                $_SESSION['mssg'] = 'Some pieces could not be uploaded.';
             }
         } else {
-              $_SESSION['mssg'] = 'The piece could not be uploaded'; 
-                header('Location: ../vistas/editcloset.php');
-                exit();
+            $_SESSION['mssg'] = 'All files must be in jpg, jpeg, or png format.';
         }
-    } else {
-          $_SESSION['mssg'] = 'The document must be jpg, jpeg or png format'; 
-                header('Location: ../vistas/editcloset.php');
-                exit();
     }
-}; 
+
+    $_SESSION['mssg'] = 'The pieces have been uploaded successfully.';
+    header('Location: ../vistas/editcloset.php');
+    exit();
+}
     function nextPiece($pieceType, $actualPiece){
          session_start(); 
          include __DIR__ . '/../config/connection.php';
@@ -210,29 +199,37 @@ function uploadPiece() {
 
     }; 
 
-    function showAllPieces($pieceType){
-         session_start(); 
-         include __DIR__ . '/../config/connection.php';
-         $sql = $conn->prepare("SELECT name_piece FROM piece WHERE id_user = ? AND type_piece = ?");
-         $sql->bind_param("ss", $_SESSION['user'], $pieceType); 
-         $sql->execute();
-         $resultPiece = $sqñ->fetchAll();
+function showAllPieces($pieceType) {
+    include __DIR__ . '/../config/connection.php';
+    $userId = $_SESSION['user'];
+    
+    $sql = $conn->prepare("SELECT img_piece FROM piece WHERE id_user = ? AND type_piece = ?");
+    $sql->bind_param("ss", $userId, $pieceType);
+    $sql->execute();
+    $resultPiece = $sql->get_result();
 
-         foreach($resultPiece as $rowPiece){
-            echo '
+    if ($resultPiece->num_rows === 0) {
+        $_SESSION['mssg'] = 'There are no pieces available.';
+        return '<p>No pieces available.</p>';
+    } else {
+        $output = '';
+        while ($rowPiece = $resultPiece->fetch_assoc()) {
+            $output .= '
                 <div class="piece-card">
-                        <button>
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <img class="piece-img" src="../assets/img/'.$pieceType.'/'.$rowPiece['name_piece'].'" alt="">
-                    </div>
-            ';
-         }
+                    <button>
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    <img class="piece-img" src="../assets/img/' . $pieceType . '/' . $rowPiece['img_piece'] . '" alt="">
+                </div>';
+        }
+        return $output;
     }
+}
+
 
     /***********/ 
 
     if(isset($_POST['upload-piece'])){
-        uploadPiece();
+        uploadPieces();
     }
 ?>

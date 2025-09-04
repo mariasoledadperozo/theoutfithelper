@@ -8,7 +8,7 @@
             </section>
             <section class="elements-form">
                                 <label for="picture">Picture*:</label>
-                                <input type="file" name="picture" require>
+                                <input type="file" name="pictures[]" multiple required>
             </section>
             <section class="elements-form">
                                 <label for="type">Type*:</label>
